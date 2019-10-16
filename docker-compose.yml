@@ -1,21 +1,25 @@
 version: '3.1'
 services:
-  mongo:
+  mongo-servera:
     image: mongo:4.0.13-xenial
     restart: always
     volumes:
-    - ./data:/data/db
+    - ./data-servera:/data/db
+    - ./logs-servera:/var/log/mongodb/
     ports:
     - 27017:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
 
-  mongo-express:
-    image: mongo-express
+  mongo-serverb:
+    image: mongo:4.0.13-xenial
     restart: always
+    volumes:
+    - ./data-serverb:/data/db
+    - ./logs-serverb:/var/log/mongodb/
     ports:
-      - 8081:8081
+    - 27018:27017
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: root
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
