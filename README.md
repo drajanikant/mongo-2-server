@@ -3,8 +3,8 @@
 Using the mongodb docker images
 
 ```
-git clone git@bitbucket.org:rajanikant-devmore/mongo-docker.git
-cd mongo-docker
+git clone git@github.com:drajanikant/mongo-2-server.git
+cd mongo-2-server
 mkdir data
 ```
 
